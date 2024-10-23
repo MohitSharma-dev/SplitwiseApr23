@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-@Component
+@Component("GeneralSettleUpStrategy")
 public class GeneralSettleUpStrategy implements SettleUpStrategy {
     @Override
     public List<Transaction> settleUp(List<Expense> expenses) {
@@ -32,7 +32,7 @@ public class GeneralSettleUpStrategy implements SettleUpStrategy {
         List<User> userList = new ArrayList<>(expensesMap.keySet());
         int size = userList.size();
         for(int i = 0; i < size - 1; i ++) {
-            Transaction transaction = new Transaction();
+            Transaction transaction = new Transaction(null , null , 0);
             if(expensesMap.get(userList.get(i)) < 0) {
                 transaction.setUserFrom(userList.get(i));
                 transaction.setAmount(Math.abs(expensesMap.get(userList.get(i))));

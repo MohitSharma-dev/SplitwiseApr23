@@ -35,6 +35,10 @@ public class SettleUpGroupCommand implements Command{
         System.out.println(responseDTO.getResponseStatus());
         if(responseDTO.getResponseStatus().equals(ResponseStatus.FAILURE)){
             System.out.println(responseDTO.getFailureMessage());
+        } else {
+            for(Transaction transaction : responseDTO.getTransactions()){
+                System.out.println(transaction.getUserFrom().getName() + " should pay " + transaction.getUserTo().getName() + " : " + transaction.getAmount());
+            }
         }
     }
 }

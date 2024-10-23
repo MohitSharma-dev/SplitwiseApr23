@@ -1,6 +1,6 @@
 package org.scaler.splitwiseapr23.models;
 
 public enum ExpenseType {
-    ACTUAL_SPEND,
-    SETTLE_UP_TRANSACTION
+    ACTUAL_SPEND, // 0
+    SETTLE_UP_TRANSACTION // 1
 }

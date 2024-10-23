@@ -7,6 +7,7 @@ import org.scaler.splitwiseapr23.repositories.ExpenseRepository;
 import org.scaler.splitwiseapr23.repositories.GroupRepository;
 import org.scaler.splitwiseapr23.strategies.SettleUpStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,17 +17,17 @@ import java.util.Optional;
 public class SettleUpService {
     private GroupRepository groupRepository;
     private ExpenseRepository expenseRepository;
+    @Autowired
+    @Qualifier("HeapSettleUpStrategy")
     private SettleUpStrategy settleUpStrategy;
 
     @Autowired
     SettleUpService(
             GroupRepository groupRepository,
-            ExpenseRepository expenseRepository,
-            SettleUpStrategy settleUpStrategy
+            ExpenseRepository expenseRepository
     ) {
         this.groupRepository = groupRepository;
         this.expenseRepository = expenseRepository;
-        this.settleUpStrategy = settleUpStrategy;
     }
 
     public List<Transaction> settleUpUser(
@@ -71,3 +72,8 @@ public class SettleUpService {
     // UserExpense 1 : User : A , amt : -1000
     // UserExpense 2 : User : B , amt : 1500
     // UserExpense 3 : User : C , amt : -500
+
+// Create new group
+// AddGroupMember
+// AddExpense
+//

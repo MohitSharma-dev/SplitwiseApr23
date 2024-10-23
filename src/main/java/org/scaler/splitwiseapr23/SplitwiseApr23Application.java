@@ -26,3 +26,11 @@ public class SplitwiseApr23Application implements CommandLineRunner {
     }
 
 }
+
+// Mohit : 500
+// Asyuh : -500
+// Mohit 500
+// Ayush 500
+// Naman -1000
+
+
